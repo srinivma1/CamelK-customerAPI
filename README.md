@@ -8,7 +8,7 @@ cd CamelK-customerAPI
 kamel run --dev --name customers --dependency camel-undertow --property camel.rest.port=8080 --open-api customer-api.json customer-api.xml
 ```
 
-![Camel K Routes started](images/CamelK_RoutesStarted.png "Camel-k Routes started")
+![Camel K Routes started](images/CamelK_Routes_Started.png "Camel-k Routes started")
 
 ### Print rest routes:
 
