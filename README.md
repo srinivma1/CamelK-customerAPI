@@ -18,4 +18,4 @@ You have to enable DEBUG logging level:
 kamel run --dev --name customers --dependency camel-undertow --property camel.rest.port=8080 --open-api customer-api.json --logging-level org.apache.camel.k=DEBUG customer-api.xml
 ```
 
-![Camel K Rests Routes](images/CamelK_Rests.png "Camel-k Rests Routes")
+![Camel K Rests Routes](images/CamelK-Rests.png "Camel-k Rests Routes")
