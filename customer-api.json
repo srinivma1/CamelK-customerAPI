@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "New API",
-        "description": "A brand new API with no content.  Go nuts!",
+        "title": "CustomerAPI",
+        "description": "Customer API",
         "version": "1.0"
     },
     "consumes": [
@@ -57,7 +57,7 @@
                     "type": "string"
                 }
             },
-            "example": "{\n    \"name\":\"christina\", \n    \"company\":\"redhat\", \n    \"phone\":\"01020304\", \n    \"email\":\"christina@xyz.com\"\n}"
+            "example": "{\n    \"name\":\"Abdellatif\", \n    \"company\":\"redhat\", \n    \"phone\":\"01020304\", \n    \"email\":\"Abdellatif@xyz.com\"\n}"
         }
     }
 }
