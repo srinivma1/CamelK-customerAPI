@@ -5,6 +5,12 @@
         "description": "Customer API",
         "version": "1.0"
     },
+  "host" : "",
+  "basePath" : "/camel/",
+  "tags" : [ {
+    "name" : "Customer",
+    "description" : "CustomerAPI"
+  } ],
     "consumes": [
         "application/json"
     ],
