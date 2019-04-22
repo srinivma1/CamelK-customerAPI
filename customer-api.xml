@@ -23,7 +23,7 @@
     <route>
       <from uri="direct:getCustomer"/>
       <transform>
-        <constant>Customer : "CamelUser" - gotten using Camel K</constant>
+        <constant>Customer : "User1" - gotten using Camel K \n Customer : "User2" - gotten using Camel K</constant>
       </transform>
     </route>
     <route>
