@@ -8,6 +8,4 @@ https://developers.redhat.com/blog/2019/04/25/build-and-deploy-an-api-with-camel
 
 ### Learn how in this video:
 
-https://youtu.be/WE8K6872w1U?list=PLjUhbv-gm7i2G9EBzWKVALeO8N-eZkPlc
-
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=WE8K6872w1U "How to build and deploy an API with Camel K on OpenShift")
+[![Everything Is AWESOME](images/CamelK_Routes_Started.png)](http://www.youtube.com/watch?v=WE8K6872w1U "How to build and deploy an API with Camel K on OpenShift")
