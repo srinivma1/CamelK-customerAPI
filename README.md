@@ -1,21 +1,13 @@
 # CamelK-customerAPI
 
-### How to Run
+Camel K lets you build and deploy your API on Kubernetes or Red Hat OpenShift in less than a second. 
 
-```sh
-git clone https://github.com/abouchama/CamelK-customerAPI.git
-cd CamelK-customerAPI
-kamel run --name customers --dependency camel-undertow --property camel.rest.port=8080 --logs --open-api customer-api.json customer-api.xml
-```
+### Read the tutorial at: 
 
-![Camel K Routes started](images/CamelK_Routes_Started.png "Camel-k Routes started")
+https://developers.redhat.com/blog/2019/04/25/build-and-deploy-an-api-with-camel-k-on-red-hat-openshift/
 
-### Print rest routes:
+### Learn how in this video:
 
-You have to enable DEBUG logging level:
+https://youtu.be/WE8K6872w1U?list=PLjUhbv-gm7i2G9EBzWKVALeO8N-eZkPlc
 
-```sh
-kamel run --name customers --dependency camel-undertow --property camel.rest.port=8080 --logs --open-api customer-api.json --logging-level org.apache.camel.k=DEBUG customer-api.xml
-```
-
-![Camel K Rests Routes](images/CamelK-Rests.png "Camel-k Rests Routes")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=WE8K6872w1U "How to build and deploy an API with Camel K on OpenShift")
