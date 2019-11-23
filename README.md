@@ -21,7 +21,7 @@ kamel run customer-api.xml \
     --property camel.rest.port=8080 \
     --env CAMEL_LOG_MSG=" ** Camelk ** This request is handled by this POD: {{env:HOSTNAME}}" \
     --env CAMEL_GET_SETBODY=" (V1) --> Enjoy the camelk Knative demo :-) | POD : {{env:HOSTNAME}} \n" \
-    --env CAMEL_CREATE_SETBODY=" (V1) --> Enjoy the camelk Knative demo :-) | POD : {{env:HOSTNAME}} \n" \
+    --env CAMEL_CREATE_SETBODY=" (V1) --> Enjoy the camelk Knative demo :-) | POD : {{env:HOSTNAME}} \n"
 
 curl http://customers-demo.$(minishift ip).nip.io/camel/customer
 ```
