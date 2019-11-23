@@ -16,7 +16,6 @@ kamel run customer-api.xml \
     --name customers \
     --dependency camel-undertow \
     --dependency camel-rest \
-    -t quarkus.enabled=true \
     --logging-level org.apache.camel.k=DEBUG \
     --property camel.rest.port=8080 \
     --env CAMEL_LOG_MSG=" ** Camelk ** This request is handled by this POD: {{env:HOSTNAME}}" \
