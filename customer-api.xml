@@ -9,16 +9,16 @@
       <from uri="direct:getCustomer"/>
       <log message="{{env:CAMEL_LOG_MSG}}"/>
           <setBody>
-              <simple> {{env:CAMEL_SETBODY}} </simple>
+              <simple> {{env:CAMEL_GET_SETBODY}} </simple>
           </setBody>
     </route>
 
     <route>
       <from uri="direct:CreateCustomer"/>
-      <transform>
-        <constant>Customer Created using Camel K</constant>
-      </transform>
-      <to uri="log:info"/>
+      <log message="{{env:CAMEL_LOG_MSG}}"/>
+          <setBody>
+              <simple> {{env:CAMEL_CREATE_SETBODY}} </simple>
+          </setBody>
     </route>
 
 </routes>
