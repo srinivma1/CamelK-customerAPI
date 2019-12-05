@@ -1,0 +1,76 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: customers
+  namespace: camelkknativetutorial
+spec:
+  template:
+    spec:
+      containers:
+        - image: image-registry.openshift-image-registry.svc:5000/camelkknativetutorial/camel-k-kit-bnijdei5fmjtcuf01le0:139475
+          env:
+            - name: camel.rest.port
+              value: "8080"
+            - name: CAMEL_LOG_MSG
+              value: '** Camelk ** This request is handled by this POD: {{env:HOSTNAME}}'
+            - name: CAMEL_GET_SETBODY
+              value: '(Version 1) --> Enjoy the camelk Knative demo :-) | POD : {{env:HOSTNAME}}\n'
+            - name: CAMEL_CREATE_SETBODY
+              value: '(Version 1) --> Enjoy the camelk Knative demo :-) | POD : {{env:HOSTNAME}}\n'
+            - name: CAMEL_K_DIGEST
+              value: vGwlmzNR4EaJznLrPPjhzqWcCME3HKwbWsjf4kreAmlI
+            - name: CAMEL_K_ROUTES
+              value: file:/etc/camel/sources/i-source-000/customer-api.xml?language=xml,file:/etc/camel/sources/i-source-001/customer-api.xml?language=xml
+            - name: CAMEL_K_CONF
+              value: /etc/camel/conf/application.properties
+            - name: CAMEL_K_CONF_D
+              value: /etc/camel/conf.d
+            - name: CAMEL_K_VERSION
+              value: /etc/camel/conf.d
+            - name: CAMEL_K_VERSION
+              value: 1.0.0-M4
+            - name: CAMEL_K_RUNTIME_VERSION
+              value: 1.0.7
+            - name: CAMEL_VERSION
+              value: 3.0.0-RC3
+            - name: JAVA_MAIN_CLASS
+              value: org.apache.camel.k.main.Application
+            - name: AB_JOLOKIA_OFF
+              value: "true"
+            - name: JAVA_CLASSPATH
+              value: ./resources:/etc/camel/conf:/etc/camel/resources:/etc/camel/sources/i-source-000:/etc/camel/sources/i-source-001:dependencies/com.github.ben-manes.caffeine.caffeine-2.8.0.jar:dependencies/com.sun.activation.javax.activation-1.2.0.jar:dependencies/com.sun.xml.bind.jaxb-core-2.3.0.1.jar:dependencies/com.sun.xml.bind.jaxb-impl-2.3.0.jar:dependencies/commons-io.commons-io-2.6.jar:dependencies/io.undertow.undertow-core-2.0.27.Final.jar:dependencies/javax.servlet.javax.servlet-api-3.1.0.jar:dependencies/javax.xml.bind.jaxb-api-2.3.0.jar:dependencies/org.apache.camel.camel-api-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-attachments-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-base-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-bean-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-caffeine-lrucache-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-cloud-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-core-engine-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-direct-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-http-common-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-jaxp-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-main-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-management-api-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-rest-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-support-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-undertow-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-util-3.0.0-RC3.jar:dependencies/org.apache.camel.camel-util-json-3.0.0-RC3.jar:dependencies/org.apache.camel.k.camel-k-loader-xml-1.0.7.jar:dependencies/org.apache.camel.k.camel-k-runtime-core-1.0.7.jar:dependencies/org.apache.camel.k.camel-k-runtime-main-1.0.7.jar:dependencies/org.apache.camel.spi-annotations-3.0.0-RC3.jar:depend
+          volumeMounts:
+            - mountPath: /etc/camel/sources/i-source-000
+              name: i-source-000
+            - mountPath: /etc/camel/sources/i-source-001
+              name: i-source-001
+            - mountPath: /etc/camel/conf
+              name: integration-properties
+            - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+              name: default-token-ffv7v
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: content
+              path: customer-api.xml
+            name: customers-source-000
+          name: i-source-000
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: content
+              path: customer-api.xml
+            name: customers-openapi-000
+          name: i-source-001
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: application.properties
+              path: application.properties
+            name: customers-properties
+          name: integration-properties
+        - name: default-token-ffv7v
+          secret:
+            defaultMode: 420
+            secretName: default-token-ffv7v
