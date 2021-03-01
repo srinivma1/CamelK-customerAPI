@@ -11,16 +11,7 @@ oc login -u developer -p x
 oc new-project demo
 kamel install
 
-kamel run customer-api.xml \
-    --open-api customer-api.json \
-    --name customers \
-    --dependency camel-undertow \
-    --dependency camel-rest \
-    --logging-level org.apache.camel.k=DEBUG \
-    --property camel.rest.port=8080 \
-    --env CAMEL_LOG_MSG=" ** Camelk ** This request is handled by this POD: {{env:HOSTNAME}}" \
-    --env CAMEL_GET_SETBODY=" Customer retrieved successfully \n" \
-    --env CAMEL_CREATE_SETBODY=" Customer created successfully \n"
+kamel run --dev --name customers  --property camel.rest.port=8080 --open-api customer-api.json customer-api.xml  --env CAMEL_LOG_MSG="** Camelk ** This request is handled by this POD" --env CAMEL_GET_SETBODY=" Customer retrieved successfully \n" --env CAMEL_CREATE_SETBODY="Customer created successfully \n"
 
 curl http://customers-demo.$(minishift ip).nip.io/camel/customer
 ```
